@@ -1,7 +1,11 @@
+'use strict';
+
 // npm install express --save
 
 const express = require('express');
 const app = express();
+
+const PORT = 3000;
 
 // set app
 app.set('views', './views');
@@ -9,14 +13,9 @@ app.set('views', './views');
 // npm install ejs --save
 app.set('view engine', 'ejs');
 
-app.get('/', (req, res) => {
-  res.render('home/index');
-});
+const home = require('./routes/home');
+app.use('/', home); // use -> middleware
 
-app.get('/login', (req, res) => {
-  res.render('home/login');
-});
-
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log('running server');
 });
