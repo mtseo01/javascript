@@ -3,12 +3,18 @@
 const express = require('express');
 const app = express();
 
+// set app
+app.set('views', './views');
+
+// npm install ejs --save
+app.set('view engine', 'ejs');
+
 app.get('/', (req, res) => {
-  res.send('this is root.');
+  res.render('home/index');
 });
 
 app.get('/login', (req, res) => {
-  res.send('this is login page.');
+  res.render('home/login');
 });
 
 app.listen(3000, () => {
