@@ -5,7 +5,8 @@
 const express = require('express');
 const app = express();
 
-const PORT = 3000;
+// routing
+const home = require('./routes/home');
 
 // set app
 app.set('views', './views');
@@ -13,9 +14,6 @@ app.set('views', './views');
 // npm install ejs --save
 app.set('view engine', 'ejs');
 
-const home = require('./routes/home');
 app.use('/', home); // use -> middleware
 
-app.listen(PORT, () => {
-  console.log('running server');
-});
+module.exports = app;
