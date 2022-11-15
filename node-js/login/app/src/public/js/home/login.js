@@ -1,5 +1,7 @@
 'use strict';
 
+// const { application, json } = require('express');
+
 const id = document.getElementById('id');
 const password = document.getElementById('password');
 const loginBtn = document.getElementById('login-btn');
@@ -10,6 +12,13 @@ function login() {
     id: id.value,
     password: password.value,
   };
-
-  console.log(req);
+  fetch('/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(req),
+  })
+    .then((res) => res.json())
+    .then((res) => {});
 }
