@@ -5,15 +5,21 @@ class User {
     this.body = body;
   }
   login() {
-    const body = this.body;
-    const { id, password } = UserStorage.getUserInfo(body.id);
+    const client = this.body;
+    const { id, password } = UserStorage.getUserInfo(client.id);
     if (id) {
-      if (id === body.id && password === body.password) {
+      if (id === client.id && password === client.password) {
         return { success: true };
       }
       return { sucess: false, msg: 'invaild password. try again.' };
     }
     return { success: false, msg: 'invaild ID. try again.' };
+  }
+
+  register() {
+    const client = this.body;
+    const response = UserStorage.save(client);
+    return response;
   }
 }
 
