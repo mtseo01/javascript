@@ -4,15 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="css/home/login.css" />
     <script src="/js/home/login.js" defer></script>
   </head>
   <body>
-    <div>
-      <input id="id" type="text" placeholder="ID" />
+    <div class="login-page">
+      <div class="form">
+        <form class="login-form">
+          <input id="id" type="text" placeholder="ID" />
+          <input id="password" type="password" placeholder="password" />
+          <button id="loginBtn">login</button>
+          <p class="message">
+            Not registered? <a href="#">Create an account</a>
+          </p>
+        </form>
+      </div>
     </div>
-    <div>
-      <input id="password" type="password" placeholder="PASSWORD" />
-    </div>
-    <button id="login-btn">Login</button>
   </body>
 </html>
+
+<!-- Copyright (c) 2022 by Aigars Silkalns (https://codepen.io/colorlib/pen/rxddKy) -->
