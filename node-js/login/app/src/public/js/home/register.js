@@ -9,7 +9,8 @@ const loginBtn = document.getElementById('register-btn');
 loginBtn.addEventListener('click', register);
 function register() {
   if (!id.value) return alert('please, write ID.');
-  if (password !== confirmPassword) return alert('password does not match. ');
+  if (password.value !== confirmPassword.value)
+    return alert('password does not match. ');
 
   const req = {
     id: id.value,

@@ -1,5 +1,5 @@
 {
-  "id": ["mt", "kim", "seo"],
-  "password": ["123", "333", "mt"],
-  "name": ["jake", "chi", "mintaek"]
+  "id": ["mt", "kim", "seo", "new", "new2"],
+  "password": ["123", "333", "mt", "1", "2"],
+  "name": ["jake", "chi", "mintaek", "1", "2"]
 }
