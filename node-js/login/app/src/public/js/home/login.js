@@ -1,7 +1,5 @@
 'use strict';
 
-// const { application, json } = require('express');
-
 const id = document.getElementById('id');
 const password = document.getElementById('password');
 const loginBtn = document.getElementById('login-btn');

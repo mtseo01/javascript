@@ -12,7 +12,7 @@ class User {
       if (id === client.id && password === client.password) {
         return { success: true };
       }
-      return { sucess: false, msg: 'invaild password. try again.' };
+      return { success: false, msg: 'invaild password. try again.' };
     }
     return { success: false, msg: 'invaild ID. try again.' };
   }
