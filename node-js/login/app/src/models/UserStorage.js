@@ -1,6 +1,7 @@
 'use strict';
 
-const fs = require('fs').promises;
+const db = require('../config/db');
+const { use } = require('../routes/home');
 
 class UserStorage {
   static #getUserInfo(data, id) {
@@ -26,34 +27,30 @@ class UserStorage {
     return newUsers;
   }
 
-  static getUsers(isAll, ...fields) {
-    return fs
-      .readFile('./src/databases/users.json')
-      .then((data) => {
-        return this.#getUsers(data, isAll, fields);
-      })
-      .catch(console.error);
-  }
+  static getUsers(isAll, ...fields) {}
 
   static getUserInfo(id) {
-    return fs
-      .readFile('./src/databases/users.json')
-      .then((data) => {
-        return this.#getUserInfo(data, id);
-      })
-      .catch(console.error);
+    return new Promise((resolve, reject) => {
+      const query = 'SELECT * FROM users WHERE id = ?;';
+      db.query(query, [id], (err, data) => {
+        if (err) reject(`${err}`);
+        resolve(data[0]);
+      });
+    });
   }
 
   static async save(userInfo) {
-    const users = await this.getUsers(true);
-    if (users.id.includes(userInfo.id)) {
-      throw 'ID is already exist. try other ID.';
-    }
-    users.id.push(userInfo.id);
-    users.password.push(userInfo.password);
-    users.name.push(userInfo.name);
-    fs.writeFile('./src/databases/users.json', JSON.stringify(users));
-    return { success: true };
+    return new Promise((resolve, reject) => {
+      const query = 'INSERT INTO users(id, name, password) VALUES(?, ?, ?);';
+      db.query(
+        query,
+        [userInfo.id, userInfo.name, userInfo.password],
+        (err) => {
+          if (err) reject(`${err}`);
+          resolve({ success: true });
+        }
+      );
+    });
   }
 }
 
