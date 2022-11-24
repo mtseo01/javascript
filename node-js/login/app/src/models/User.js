@@ -1,5 +1,5 @@
 'use strict';
-const { response } = require('express');
+
 const UserStorage = require('./UserStorage');
 class User {
   constructor(body) {
@@ -8,12 +8,12 @@ class User {
   async login() {
     const client = this.body;
     try {
-      const { id, password } = await UserStorage.getUserInfo(client.id);
-      if (id) {
-        if (id === client.id && password === client.password) {
+      const user = await UserStorage.getUserInfo(client.id);
+      if (user) {
+        if (user.id === client.id && user.password === client.password) {
           return { success: true };
         }
-        return { success: false, msg: 'invaild password. try again.' };
+        return { success: false, msg: 'invaild Password. try again.' };
       }
       return { success: false, msg: 'invaild ID. try again.' };
     } catch (err) {
