@@ -18,6 +18,7 @@ const printLogFormat = {
     }),
     printFormat
   ),
+
   console: combine(
     colorize(), //
     simple()
@@ -31,6 +32,7 @@ const opts = {
     level: 'info',
     format: printLogFormat.file,
   }),
+
   console: new transports.Console({
     level: 'info',
     format: printLogFormat.console,

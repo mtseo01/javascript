@@ -7,6 +7,7 @@ const confirmPassword = document.getElementById('confirm-password');
 const loginBtn = document.getElementById('register-btn');
 
 loginBtn.addEventListener('click', register);
+
 function register() {
   if (!id.value) return alert('please, write ID.');
   if (password.value !== confirmPassword.value)
