@@ -34,12 +34,13 @@ const array = new Numbers();
 array.multiply([1, 2, 3]);
 console.log(array.numberArray); // [1, 4, 9]
 
+// 초기화
 class Calculator {
   constructor(arr = []) {
     this.arr = arr;
   }
 
-  pow() {
+  power() {
     this.arr.forEach((item, index, array) => {
       array[index] = item ** 2;
     });
@@ -47,5 +48,5 @@ class Calculator {
 }
 
 const calculator = new Calculator([3, 6, 9]);
-calculator.pow();
+calculator.power();
 console.log(calculator.arr); // [9, 36, 81]
