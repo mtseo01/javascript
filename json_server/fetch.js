@@ -11,13 +11,20 @@ function getData() {
     .then((json) => {
       console.log(json);
       const h = [];
-      for (const data of json) {
+      json.forEach((data) => {
         h.push(`<tr>`);
         h.push(`<td>${data.id}</td>`);
         h.push(`<td>${data.title}</td>`);
         h.push(`<td>${data.author}</td>`);
         h.push(`</tr>`);
-      }
+      });
+      // for (const data of json) {
+      //   h.push(`<tr>`);
+      //   h.push(`<td>${data.id}</td>`);
+      //   h.push(`<td>${data.title}</td>`);
+      //   h.push(`<td>${data.author}</td>`);
+      //   h.push(`</tr>`);
+      // }
 
       tdBody.innerHTML = h.join('');
     })
