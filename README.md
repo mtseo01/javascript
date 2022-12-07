@@ -6,4 +6,4 @@
 
 3. Study Array & Higher-Order Function
 
-4. CRUD data using json-server
+4. CRUD data using axios, fetch API with json-server
