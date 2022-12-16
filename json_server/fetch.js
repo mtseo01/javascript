@@ -1,15 +1,17 @@
+'use strict';
+
 // 버튼 엘리먼트
 const getBtn = document.getElementById('get-button');
 const postBtn = document.getElementById('post-button');
 const putBtn = document.getElementById('put-button');
 const deleteBtn = document.getElementById('delete-button');
-
+const axiosBtn = document.getElementById('axios-button');
 // tbody 엘리먼트
 const tdBody = document.getElementById('tb-body');
 
 // 조회 기능(GET)
 function getData() {
-  fetch(' http://localhost:3000/databases') // fetch로 해당 url에 데이터 요청
+  fetch('http://localhost:3000/databases') // fetch로 해당 url에 데이터 요청
     .then((response) => response.json()) // 응답 받은 데이터를 form을 json으로 변경
     .then((json) => {
       const temp = []; // 데이터를 넣을 임시 배열 생성

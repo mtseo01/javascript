@@ -1,4 +1,4 @@
-# Java Script PlayGround
+# JavaScript PlayGround
 
 1. Object-Oriented Programming
 
